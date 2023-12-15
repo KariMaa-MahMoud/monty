@@ -10,7 +10,7 @@ void add_nodes(stack_t **stack, unsigned int line_number)
 	int sum;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-		more_err(8, line_number, "add");
+		more_error(8, line_number, "add");
 
 	(*stack) = (*stack)->next;
 	sum = (*stack)->n + (*stack)->prev->n;
@@ -31,7 +31,7 @@ void sub_nodes(stack_t **stack, unsigned int line_number)
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 
-		more_err(8, line_number, "sub");
+		more_error(8, line_number, "sub");
 
 
 	(*stack) = (*stack)->next;
@@ -52,10 +52,10 @@ void div_nodes(stack_t **stack, unsigned int line_number)
 	int sum;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-		more_err(8, line_number, "div");
+		more_error(8, line_number, "div");
 
 	if ((*stack)->n == 0)
-		more_err(9, line_number);
+		more_error(9, line_number);
 	(*stack) = (*stack)->next;
 	sum = (*stack)->n / (*stack)->prev->n;
 	(*stack)->n = sum;
@@ -73,7 +73,7 @@ void mul_nodes(stack_t **stack, unsigned int line_number)
 	int sum;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-		more_err(8, line_number, "mul");
+		more_error(8, line_number, "mul");
 
 	(*stack) = (*stack)->next;
 	sum = (*stack)->n * (*stack)->prev->n;
@@ -94,11 +94,11 @@ void mod_nodes(stack_t **stack, unsigned int line_number)
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 
-		more_err(8, line_number, "mod");
+		more_error(8, line_number, "mod");
 
 
 	if ((*stack)->n == 0)
-		more_err(9, line_number);
+		more_error(9, line_number);
 	(*stack) = (*stack)->next;
 	sum = (*stack)->n % (*stack)->prev->n;
 	(*stack)->n = sum;
